@@ -1,0 +1,307 @@
+(event (arrive <REDACTED> morning))
+
+(event (time 9:00 am)
+       (and
+	(task retrieve newspaper)
+	(task retrieve mail)
+	(task awaken <REDACTED>)
+	(event awakening <REDACTED>)
+	(as needed
+	    (assist with dressing))
+	(task open curtains and blinds in bedroom)
+	(task open blinds in second bedroom)
+	(as needed
+	    (task adjust heat thermostat))
+	(as needed
+	    (task assist <REDACTED> moving-around-apartment))
+	(if (has <REDACTED> hearing-aid)
+	    (task adjust hearing aid in left ear))
+	;; <REDACTED>  should take his medication  immediately after waking
+	;; and before eating. If left for later he avoids his meds and
+	;; stalls.
+	(required-task administer morning-medication)
+	;; (required-task cook-and-serve breakfast)
+	(as needed
+	    (task assist-with breakfast)
+	    ;; Let <REDACTED> do as much as possible.
+	    )
+	(required-task administer morning-exercises)
+	(task wash breakfast-dishes)
+	(as needed
+	    (and
+	     (task clean apartment, run sweeper when needed, dust)
+	     (task pick up things from floor)
+	     (task washing when needed)
+	     ;; Washer/Dryer in basement.
+	     (as needed (bath-or-shower <REDACTED>))
+	     ;; Ignore <REDACTED>'s objections.
+	     )
+	    )
+	))
+
+(event (leave <REDACTED> morning)
+       (task blinds open in bedroom)
+       (task check heat)
+       (task check <REDACTED>))
+
+(depends (fix breakfast) (administer morning exercises))
+
+(event (falls <REDACTED>)
+       (if (cannot-get-up <REDACTED>) 
+	   (assist <REDACTED> <REDACTED>
+		   (get-up <REDACTED>)))
+)
+
+(event (leave <REDACTED> evening)
+       (preconditions
+	(if (going to storm before morning)
+	    (shut windows))))
+
+(rules
+ (after (time 9:00 am)
+	(not (ok (sleep <REDACTED> in-bed))))
+ (when (moving <REDACTED> around apartment)
+   (and
+    (wear <REDACTED> helmet)
+    (use walker)))
+ (when (sitting <REDACTED>)
+   (ok (not (wear <REDACTED> helmet))))
+ (when (before bedtime)
+   (not (lie <REDACTED> in bed and sleep)))
+ (when (has-freetime <REDACTED>)
+   (ok (sleep-doze <REDACTED> living-room-chair)))
+ (each (day)
+       (as needed
+	   (shower <REDACTED>)))
+ (at-least-once-each (week)
+		     (shower <REDACTED>)
+		     ;; Despite his objections
+		     )
+ (drink <REDACTED> (all lachulose))
+ (ok (choose <REDACTED> bedtime))
+ (after (awakening <REDACTED>)
+	(change-into <REDACTED> daytime-clothes))
+ (before (going-to-bed <REDACTED>)
+   (change-into <REDACTED> pajamas))
+ (when (moving-around-apartment <REDACTED>)
+   (wearing <REDACTED> helmet))
+ (before (dinnertime)
+	 (suggest-to <REDACTED>
+		     (do evening-exercises)
+		     ;; he will stall and avoid after he eats
+		     ))
+ (when (awakening <REDACTED>)
+   ;; to help him get up
+   (hold-in-front-of <REDACTED> medication))
+ (if (no lachulose)
+     (wash-down-with medication water))
+ )
+
+(required-task administer evening-medication
+      (and
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (fluid <REDACTED>))
+       ))
+
+(required-task administer morning-medication
+      (and
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (pill <REDACTED>))
+       (take <REDACTED> (fluid <REDACTED>))
+       ))
+
+(event (arrive <REDACTED> evening)
+       (and
+	(as needed
+	    (task assist <REDACTED> moving-around-apartment))
+	(if (has <REDACTED> hearing-aid)
+	    (task adjust hearing aid in left ear))
+	(required-task administer evening-exercises)
+	(task set-table for dinner)
+	(task assist with dinner)
+	;; let <REDACTED> do as much as possible
+	((or (around (8:00 pm))
+	    (after dinner))
+	 (required-task administer evening-medication))
+	(task (and 
+	       (wash dishes)
+	       (cleanup table)))
+	(task
+	     (task clean apartment, run sweeper when needed, dust)
+	     (task pick up things from floor)
+	     (task washing when needed)
+	     ;; Washer/Dryer in basement.
+	     (as needed
+		 (bath-or-shower <REDACTED>))
+	     ;; Ignore <REDACTED>'s objections.
+	     )
+	(event (leave <REDACTED> evening))
+	)
+       )
+
+(event (leave <REDACTED> evening)
+       (refill ice cubes)
+       (task close bedroom-blinds)
+       (task check heat)
+       (task check <REDACTED>)
+       (task (and
+	      (move trash-bag garbage-can)
+	      (shut-lid garbage-can)))
+       (task move recyclables blue-can)
+)
+
+(event (on (and
+	    Thursday
+	    Sunday)
+	   ;; outside to do walking exercise.  Go around block or more
+	   ;; if <REDACTED> OK
+	   (task trip <REDACTED> around-the-block))
+)
+
+(event (occasionally)
+       (or
+	(task trip <REDACTED> ACCESS-medical)
+	(task trip <REDACTED> (or
+			  Sunday-mass
+			  evening-church))
+	(task trip <REDACTED> (or
+			  other-meetings
+			  social-events))))
+
+(task (administer morning-exercises) 
+      ;; prepare your flow, get him used to doing exercises right after breakfast?
+      ;; move fan into kitchen
+      ;; prepare water
+      (execute 'akahige-walk-through-exercises)
+      (put-into-proper-place description-of-exercise)
+)
+
+
+(task (administer evening-exercises) 
+      (execute 'akahige-walk-through-exercises)
+      (put-into-proper-place description-of-exercise)
+)
+
+(task (assist-with breakfast)
+      (task ensure (not (moldy food)))
+      (task do dishes))
+
+(task (administer morning-medication)
+      (task ensure (in-order medicine)))
+
+(when (has-misplaced <REDACTED> helmet)
+  (put-into-proper-place helmet))
+
+(if (spill <REDACTED> ?X)
+    (clean-up <REDACTED> ?X))
+
+(put-into-proper-place laxative-measure-glass)
+(put-into-proper-place medication-information-card)
+
+(Turn light  on and off before  going up and down  stairs (never leave
+light on all  night for instance.)  Turn light  on coming down stairs,
+off, before leaving.
+
+(before (serving-food)
+	(prepare (and ice-tea
+		      food)))
+
+(be-prepared-for
+ (movements <REDACTED>))
+
+(before (arriving <REDACTED>)
+	(and (put-into-proper-place newspaper)
+	     (put-into-proper-place mail)))
+	
+(if (emergency)
+    (call 412-922-1022))
+
+(if (falls <REDACTED>)
+    (if (or
+	 bleeding
+	 severe-damage
+	 unsure)
+	(call 412-922-1022)))
+
+(if (asks-about <REDACTED> mail)
+    (deny))
+
+(before (call 911)
+	(call 412-922-1022))
+
+(if
+    (not (available chuck))
+    ())
+
+(if (moving <REDACTED>)
+	((provide movement-support)
+	((wear helmet)
+	(adversarial-strategy hide-helmet
+		(response find-helmet))
+	(hold him)))
+
+Out for walks - few weeks walking on street - stabilization.)
+Gran mal
+
+Seizures petit mal
+Never had a problem
+
+911 in case of serious bleeding
+broken bones
+totally not breathing (check pulse)
+unconsciousness with breathing for more than 30 minutes
+
+Get dave, up
+medication first thing
+go to bathroom
+
+nudge, wake him, open curtains
+swing legs over bed.
+mix up laxative, pills in cup
+he-ll say has to go to bathroom, steady him
+clean up
+9/10 fake meds
+Go to breakfast table, (falls at chair, at divider, when putting shirt on)
+Shave, put the shaver on breakfast point.  Shave before breakfast.
+
+After his response (that's the way we do things).  Make him shave.
+If he moves shaver aside, pick it up back in front.
+if not shaven will say he can't.
+Cereal w/ milk PBJ
+Eat breakfast.
+
+After breakfast - should do exercises
+2 sets of exercises, 1 set at kitchen sink.
+(help put dishes in sink)
+Sink exercises. 1/2 hour willingly
+prompt which is next
+show him
+exercises on bed 1/2 hr.
+hygience. Bad hygene.
+Laundry psychiatrist.
+After exercises on bed.
+Stamp collection leave <REDACTED> alone
+no sleeping in bed when he gets allowed to doze in chair
+Email, pen pals
+communicate with time period of two weeks following wednesday thr. fr. 3rd week.
+
+welcome 2-3 tmies per day
+laxative
+watch out for hallucinations (ammonia)
+
+Questions for Chuck for tomorrow.
+Do I call the emergency system he showed me before during or after calling 911 in the event that etc ...
+
+####################################################################
+
+Here is the state transition diagram, with an event monitoring loop
+major features are a check every couple minutes that he is doing well.
+I could listen to books at the same time.
+I can program using my laptop.
+Work on assistive software in this case.

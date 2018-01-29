@@ -1,0 +1,51 @@
+AKAHIGE DAILY MORNING STATUS REPORT 
+for Patient: David Glassmire
+Monday, August 9th, 2005
+
+PATIENT SUMMARY
+
+<SUCCESSES>
+
+<MISTAKES>
+
+NURSE SUMMARY
+
+<COMPLETED TASKS>
+
+<QUESTIONS>
+
+<REQUESTS>
+
+We are out of the following:
+
+We are less than 1 days worth of the following:
+
+We are less than 2 days worth of the following:
+
+We are less than 3 days worth of the following:
+
+We are less than 1 week worth of the following:
+
+<THANKS>
+
+<EXERCISE-LOG>
+
+<YES-NO-SECTION>
+
+Did he have any falls?
+
+Morning:
+
+Did he take medication immediately?
+Did he stall on exercises?
+Did he try to do anything out of order?
+
+Evening:
+
+Did he take medication immediately?
+Did he stall on exercises?
+Did he try to do anything out of order?
+
+<GOALS>
+
+<ERRATA>

@@ -1,0 +1,109 @@
+<system>
+  <title>
+    Akahige
+    <!-- What it is called. Short. Easy to remember. Relevant. -->
+  </title>
+  <acronym-expansion>
+    <!-- If it is an acronym, what does it expand to? -->
+  </acronym-expansion>
+  <slogan>
+    To avoid the subject and not face it directly is what I would call
+    pessimism."
+    <!-- What if any is the slogan? -->
+  </slogan>
+  <pi>
+    <!-- Who is Principle Investigator? -->
+  </pi>
+  <short-description>
+    Shoestring public health
+    <!-- "This system is a system that ..."
+
+	 Syntactic  controls: The $title  system is  a (system  for)? "..."
+	 Tag line, under 70 characters, do not puncuate end.
+	 
+	 Semantic controls:  Purpose of  short-description is to  provide a
+	 one  line  summary that  gives  some  indication  of the  system's
+	 capabilities  for  things  like  apt.   It is  equivalent  to  the
+	 short-desc from the Debian control file.
+
+	 QUOTED FROM DEBIAN POLICY
+
+	 3.4.1 The single line synopsis
+
+	 The single line synopsis should be kept brief - certainly under 80
+	 characters.
+
+	 Do not include the package  name in the synopsis line. The display
+	 software knows how to display this already, and you do not need to
+	 state it. Remember  that in many situations the  user may only see
+	 the synopsis line - make it  as informative as you can.
+
+	 (Answers question .)
+    -->
+  </short-description>
+  <medium-description>
+    Akahige is a free medical assistant and an "AI Physician" to be
+    used when a physician is unavailable.  It will contain an expert
+    system for diagnosing medical problems.  In this way otherwise
+    unavailable medical knowledge may be brought to bear.  It also
+    makes use of folk medicinal knowledge.  Together,
+    RSR/Gourmet/Akahige provide a robust record mechanism with which
+    to determine empirically the effectiveness of various remedies
+    (evidence-based medicine?).  The diagnosis system immediately
+    wraps into an execution component.  For instance if someone is in
+    need of emergency assistance like CPR, Akahige provides
+    interactive instruction.  A large set of SOPs and COAs are stored
+    and if interested or necessary may be taught to people using
+    CLEAR.
+    <!-- Similar to extended description for Debian.
+	 
+	 QUOTED FROM DEBIAN POLICY
+
+	 3.4.2 The extended description
+
+	 Do not try to continue  the single line synopsis into the extended
+	 description.  This   will  not   work  correctly  when   the  full
+	 description  is  displayed, and  makes  no  sense  where only  the
+	 summary (the single line synopsis) is available.
+
+	 The extended description should describe what the package does and
+	 how  it relates  to  the rest  of  the system  (in  terms of,  for
+	 example, which subsystem it is which part of).
+
+	 The description field  needs to make sense to  anyone, even people
+	 who  have  no idea  about  any of  the  things  the package  deals
+	 with.[6]
+    -->
+    <summary>
+      <!-- What does the system do? -->
+    </summary>
+    <relationship>
+      <!-- What is the relation to the rest of the FRDCSA? -->
+    </relationship>
+    <lay-description>
+      <!-- Give a non-technical description of what the system does. -->
+    </lay-description>
+  </medium-description>
+  <long-description>
+    The  goal  of Akahige  is  a  free  medical assistance.   This  is
+    achieved in  the form  of a expert  system for  diagnosing various
+    medical ailments, and  prescribing remedies.  Integration with RSR
+    helps pin causal factors.
+
+    Akahige is an important factor  and may be a critical component in
+    the battle against  major pandemics.  Although this may  be a bold
+    statement,  what  is  certain  is that  mankind's  battle  against
+    disease is a battle between two forms of life.  The virus utilizes
+    its  physical structure  and  mutation in  order  to outsmart  the
+    defenses  of mankind.   Mankind,  on the  otherhand, utilizes  his
+    conscious  experience of  the  world to  direct solutions.   While
+    people  may conceive  of fighting  a disease  as a  labratory job,
+    programs that  help people act  in ways that reduce  the potential
+    for  spread  are  just  as  important!   If  Akahige  is  able  to
+    disseminate  new  data around  the  world's  networks  to all  the
+    population, rich or  poor, it will be able  to recognize symptoms,
+    suggest courses of action,  etc.  In conjunction with other tools,
+    it  can  help  to   increase  the  consciousness  and  situational
+    awareness in the battle against disease.
+  </long-description>
+</system>
